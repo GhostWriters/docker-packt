@@ -52,7 +52,6 @@ Anticaptcha key required to download the daily book.
 
 ## Special Thanks
 
-- [biwhite](https://github.com/biwhite) for creating the initial docker
-  container.
 - <https://github.com/packt-cli/Packt-Publishing-Free-Learning> for maintaining
   the package to handle the downloading.
+- [LinuxServer.io](https://www.linuxserver.io/) for maintaining the base image used in this project.

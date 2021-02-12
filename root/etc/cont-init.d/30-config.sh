@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/with-contenv bash
 
 CFG=/config/configFile.cfg
 
@@ -7,7 +7,9 @@ if [ ! -f $CFG ]; then
 	echo 'No config file, providing sample'
 	cp /root/Packt-Publishing-Free-Learning/src/configFileTemplate.cfg $CFG
 fi
+
 # If environment arguments have been provided, switch the values in the sample config to these
+
 if [ -n "$PACKT_EMAIL" ]; then
 	echo 'ENV PACKT_EMAIL provided'
 	sed -i s/email=.*/email="$PACKT_EMAIL"/ $CFG
@@ -49,6 +51,22 @@ sed -i s@download_folder_path:.*@download_folder_path:\ \\/data@ $CFG
 
 echo 'Set logfile path to /data'
 sed -i s@ebook_extra_info_log_file_path:.*@ebook_extra_info_log_file_path:\ \\/data\\/eBookMetadata.log@ $CFG
+
+# Copy crontab default if needed
+if [ ! -f /config/crontabs/root ]; then
+	echo 'Crontabs root file not found so creating the default'
+	cp /etc/crontabs/root /config/crontabs/
+else
+	echo 'Crontabs root file not found'
+fi
+
+# Import user crontabs
+echo 'Import user crontabs'
+rm /etc/crontabs/*
+cp /config/crontabs/* /etc/crontabs/
+
+# Permissions
+chown -R abc:abc /config
 
 echo 'Start crond'
 crond -f
