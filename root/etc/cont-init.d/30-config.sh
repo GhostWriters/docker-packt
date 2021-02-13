@@ -47,6 +47,9 @@ sed -i s@download_folder_path:.*@download_folder_path:\ \\/data@ $CFG
 echo 'Set logfile path to /data'
 sed -i s@ebook_extra_info_log_file_path:.*@ebook_extra_info_log_file_path:\ \\/data\\/eBookMetadata.log@ $CFG
 
+# make /config/crontabs if it doesn't exist
+mkdir -p /config/crontabs
+
 # Copy crontab default if needed
 if [ ! -f /config/crontabs/root ]; then
 	echo 'Crontabs root file not found so creating the default'
