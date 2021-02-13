@@ -2,12 +2,6 @@
 
 CFG=/config/configFile.cfg
 
-# This copies the sample config if one is not present in the config dir
-if [ ! -f $CFG ]; then
-	echo 'No config file, providing sample'
-	cp /root/Packt-Publishing-Free-Learning/src/configFileTemplate.cfg $CFG
-fi
-
 # If environment arguments have been provided, switch the values in the sample config to these
 
 if [ -n "$PACKT_EMAIL" ]; then

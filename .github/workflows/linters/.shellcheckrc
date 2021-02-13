@@ -1,0 +1,1 @@
+disable=SC1008 # This shebang was unrecognized. Doesn't support with-contenv shebang from s6-overlay.
