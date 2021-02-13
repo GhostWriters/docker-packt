@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bash
+# shellcheck disable=SC1008
 
 CFG=/config/configFile.cfg
 
