@@ -59,7 +59,7 @@ else
 fi
 
 # Import config crontabs
-echo 'Import cpnfig crontabs'
+echo 'Import config crontabs'
 rm /etc/crontabs/*
 cp /config/crontabs/* /etc/crontabs/
 
