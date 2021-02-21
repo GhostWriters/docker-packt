@@ -55,15 +55,16 @@ if [[ ! -f /config/crontabs/root ]]; then
 	echo 'Crontabs root file not found so creating the default'
 	cp /etc/crontabs/root /config/crontabs/
 else
-	echo 'Crontabs root file not found'
+	echo 'Crontabs root file found'
 fi
 
-# Import user crontabs
-echo 'Import user crontabs'
+# Import config crontabs
+echo 'Import cpnfig crontabs'
 rm /etc/crontabs/*
 cp /config/crontabs/* /etc/crontabs/
 
 # Permissions
+echo 'Set user permissions'
 chown -R abc:abc /config
 
 echo 'Start crond'
