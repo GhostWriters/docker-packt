@@ -1,2 +1,2 @@
 
-0 1 * * * packt-cli -gd -c /config/configFile.cfg 2>&1 | tee /config/logFile.log
+0 1 * * * (echo "" && /bin/date && packt-cli -gd -c /config/configFile.cfg) 2>&1 | tee -a /config/logFile.log
